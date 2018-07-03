@@ -1,4 +1,5 @@
 ## pagent
+[![Build Status](https://travis-ci.org/adwpc/pagent.svg?branch=master)](https://travis-ci.org/adwpc/pagent)
 
 pagent is a child process agent, with a focus on being:
 
