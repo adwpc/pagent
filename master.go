@@ -22,6 +22,7 @@ func NewMaster() *Master {
 
 func (m *Master) GetWorker(id string) *Worker {
 	m.mutex.Lock()
+	defer m.mutex.Unlock()
 	if m.pool == nil {
 		m.pool = make(map[string]*Worker)
 	}
@@ -29,7 +30,6 @@ func (m *Master) GetWorker(id string) *Worker {
 		m.pool[id] = NewWorker(id)
 		m.pool[id].RegMaster(m)
 	}
-	m.mutex.Unlock()
 
 	return m.pool[id]
 }
